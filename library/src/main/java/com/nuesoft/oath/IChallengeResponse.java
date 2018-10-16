@@ -6,11 +6,6 @@ package com.nuesoft.oath;
  */
 public interface IChallengeResponse extends IOath {
 
-    String generateHashChallengeResponse(String challenge);
+    String generateOcra(String ocraSuite, byte[] key, String counter, String challenge, String password, String sessionInformation, String timeStamp) throws Exception;
 
-    String generateHashTimeChallengeResponse(String challenge);
-
-    String generateHashTimeChallengeResponse(String challenge, long time);
-
-    boolean verifyChallengeResponse(String challenge, String response, int windowSize);
 }
