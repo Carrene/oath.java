@@ -1,11 +1,12 @@
 package com.nuesoft.oath;
 
 
+import com.ehsanmashhadi.helpdroid.crypto.CryptoUtil;
+import com.ehsanmashhadi.helpdroid.crypto.HmacType;
+
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
-import nuesoft.helpdroid.crypto.CryptoUtil;
-import nuesoft.helpdroid.crypto.HmacType;
 
 public class Otp implements IOath {
 

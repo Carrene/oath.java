@@ -1,5 +1,7 @@
 package com.nuesoft.oath;
 
+import com.ehsanmashhadi.helpdroid.util.Converter;
+
 import org.junit.Assert;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -9,7 +11,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.math.BigInteger;
 import java.util.stream.Stream;
 
-import nuesoft.helpdroid.util.Converter;
 
 @DisplayName("Should pass the method parameters provided by the oneWayFirstTableParameter() method")
 public class ChallengeResponseTest {
@@ -66,12 +67,12 @@ public class ChallengeResponseTest {
         Assert.assertEquals(ocra, response);
     }
 
-    @ParameterizedTest(name = "{index} => counter={0}, time={1}, response={2}")
+    @ParameterizedTest(name = "{index} => challenge={0}, time={1}, response={2}")
     @MethodSource("oneWayFifthTableParameter")
-    public void testOcra_fifthTable(String question, String time, String response) throws Exception {
+    public void testOcra_fifthTable(String challenge, String time, String response) throws Exception {
 
         byte[] secretByte = Converter.hexStringToBytes(SEED_512);
-        String hexQuestion = (new BigInteger(question, 10)).toString(16).toUpperCase();
+        String hexQuestion = (new BigInteger(challenge, 10)).toString(16).toUpperCase();
 
         ChallengeResponse challengeResponse = new ChallengeResponse();
         String ocra = challengeResponse.generateOcra("OCRA-1:HOTP-SHA512-8:QN08-T1M", secretByte, null, hexQuestion, null, null, time);

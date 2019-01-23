@@ -1,9 +1,10 @@
 package com.nuesoft.oath;
 
+import com.ehsanmashhadi.helpdroid.util.Converter;
+
 import org.junit.Assert;
 import org.junit.Test;
 
-import nuesoft.helpdroid.util.Converter;
 
 /**
  * https://tools.ietf.org/html/rfc4226

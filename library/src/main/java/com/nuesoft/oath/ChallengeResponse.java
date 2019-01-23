@@ -1,8 +1,9 @@
 package com.nuesoft.oath;
 
-import nuesoft.helpdroid.crypto.CryptoUtil;
-import nuesoft.helpdroid.crypto.HmacType;
-import nuesoft.helpdroid.util.Converter;
+
+import com.ehsanmashhadi.helpdroid.crypto.CryptoUtil;
+import com.ehsanmashhadi.helpdroid.crypto.HmacType;
+import com.ehsanmashhadi.helpdroid.util.Converter;
 
 public class ChallengeResponse implements IChallengeResponse {
 
