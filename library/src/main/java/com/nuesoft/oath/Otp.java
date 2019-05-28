@@ -39,7 +39,7 @@ public class Otp implements IOath {
                 | (hmac[offset + 3] & 0xff);
 
         int otp = otpBinary % DIGITS_POWER[otpLength];
-        StringBuilder result = new StringBuilder(Integer.toString(otp));
+        StringBuilder result = new StringBuilder("" + otp);
         while (result.length() < otpLength) {
             result.insert(0, "0");
         }
