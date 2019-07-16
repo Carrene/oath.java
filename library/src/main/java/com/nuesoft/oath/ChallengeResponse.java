@@ -7,10 +7,6 @@ import com.ehsanmashhadi.helpdroid.util.Converter;
 
 public class ChallengeResponse implements IChallengeResponse {
 
-    static final int[] DIGITS_POWER
-            //  0  1   2     3    4        5        6       7         8
-            = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000};
-
     @Override
     public String generateOcra(String ocraSuite, byte[] secret, String counter, String challenge, String password, String sessionInformation, String timeStamp) throws Exception {
 
@@ -189,7 +185,7 @@ public class ChallengeResponse implements IChallengeResponse {
                         ((hash[offset + 2] & 0xff) << 8) |
                         (hash[offset + 3] & 0xff);
 
-        int otp = binary % DIGITS_POWER[codeDigits];
+        int otp = binary % ConstantUtil.DIGITS_POWER[codeDigits];
 
         result = Integer.toString(otp);
         while (result.length() < codeDigits) {

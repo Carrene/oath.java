@@ -10,9 +10,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class Otp implements IOath {
 
-    static final int[] DIGITS_POWER
-            //  0  1   2     3    4        5        6       7         8
-            = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000};
+
 
     protected String generateOtp(long moveFactor, HashType mHashType, byte[] secret, int otpLength) {
 
@@ -41,7 +39,7 @@ public class Otp implements IOath {
                 | ((hmac[offset + 2] & 0xff) << 8)
                 | (hmac[offset + 3] & 0xff);
 
-        int otp = otpBinary % DIGITS_POWER[otpLength];
+        int otp = otpBinary % ConstantUtil.DIGITS_POWER[otpLength];
         StringBuilder result = new StringBuilder("" + otp);
         while (result.length() < otpLength) {
             result.insert(0, "0");
